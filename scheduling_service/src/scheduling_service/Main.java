@@ -1,15 +1,30 @@
 package scheduling_service;
-
+import scheduling_service_AI.Output;
 import scheduling_service_AI.SchedulingApp;
 
 public class Main {
 
 	public static void main(String [] args) {
-		ParcelSetLoader loader = new ParcelSetLoader();
+		
+		//Read Parcel list from JSON
+		ParcelSetJsonReader loader = new ParcelSetJsonReader();
 		ParcelSet parcelSet = loader.load();
 		
+		//Perform parcel sorting
 		SchedulingApp schedule = new SchedulingApp();
-		schedule.SortParcels(parcelSet);
+		
+		try {
+			Output sortedParcels = (schedule.SortParcels(parcelSet));
+			System.out.println(sortedParcels.getSolutionCrhomosome());
+			
+			//Write sorted parcels to JSON
+			ParcelSetJsonWriter writer = new ParcelSetJsonWriter();
+			writer.write(sortedParcels);
+		}catch (NullPointerException ex) {
+			System.out.println("No solution for given constraints");
+			ErrorWriterJson jsonError = new ErrorWriterJson();
+			jsonError.noSolutionForConstraints();
+		}
 	}
 }
 

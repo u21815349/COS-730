@@ -40,6 +40,10 @@ public class Gene {
 	public void setParity(int parity) {
 		this.parity = parity;
 	}
+	
+	public String getName() {
+		return this.name;
+	}
 
 	@Override
 	public String toString() {

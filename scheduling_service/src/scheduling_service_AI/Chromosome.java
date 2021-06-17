@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Chromosome {
 	
 	//
-	ArrayList<Gene> genes = new ArrayList<>(); 
+	public ArrayList<Gene> genes = new ArrayList<>(); 
 	int fitness; //based on how big the value of the sum of elements in the genes list.
 	double totalWeight;
 	

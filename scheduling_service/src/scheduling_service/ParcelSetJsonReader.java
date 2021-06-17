@@ -9,16 +9,16 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class ParcelSetLoader {
+public class ParcelSetJsonReader {
 	
 	ParcelSet parcelSet;
 	
-	public ParcelSetLoader() {}
+	public ParcelSetJsonReader() {}
 	
 	public ParcelSet load() {
 		JSONParser parser = new JSONParser();
 		try {
-			Object object = parser.parse(new FileReader("Args.json"));
+			Object object = parser.parse(new FileReader("D:/Args.json"));
 			
 			//Convert Object to JSONObject
 			JSONObject jsonObject = (JSONObject) object;
@@ -37,13 +37,7 @@ public class ParcelSetLoader {
 			System.out.println("Quota: " + quota);
 			System.out.println("Number of parcels: " + numOfParcels);
 			System.out.println("Parcels: ");
-			for (Object parcel : parcels) {
-				JSONObject parc = ((JSONObject)parcel);
-				String name = (String)parc.get("name");
-				double weight = (Double)parc.get("weight");
-				double value = (Double)parc.get("value");
-				
-			}
+			
 			parcelSet = new ParcelSet(capacity,quota,numOfParcels);
 			for (Object parcel : parcels) {
 				JSONObject parc = ((JSONObject)parcel);
