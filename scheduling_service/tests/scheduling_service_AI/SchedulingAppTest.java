@@ -16,7 +16,7 @@ class SchedulingAppTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		parcelSet = new ParcelSet(3,10,(long) 3);
+		parcelSet = new ParcelSet(3,10,3);
 		parcelSet.parcels.add(new ParcelObject("A", 1.1, 5));
 		parcelSet.parcels.add(new ParcelObject("B", 2.1, 10));
 		parcelSet.parcels.add(new ParcelObject("C", 3.1, 15));

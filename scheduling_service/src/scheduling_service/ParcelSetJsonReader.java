@@ -24,9 +24,9 @@ public class ParcelSetJsonReader {
 			JSONObject jsonObject = (JSONObject) object;
 			
 			//Reading the String
-			double capacity = (Double) jsonObject.get("capacity");
-			double quota = (Double) jsonObject.get("quota");
-			Long numOfParcels = (Long) jsonObject.get("numOfParcels");
+			double capacity = Double.parseDouble(jsonObject.get("capacity").toString());
+			double quota = Double.parseDouble(jsonObject.get("quota").toString());
+			int numOfParcels = Integer.parseInt(jsonObject.get("numOfParcels").toString());
 					
 			
 			//Reading the array
@@ -42,11 +42,10 @@ public class ParcelSetJsonReader {
 			for (Object parcel : parcels) {
 				JSONObject parc = ((JSONObject)parcel);
 				String name = (String)parc.get("name");
-				double weight = (Double)parc.get("weight");
-				double value = (Double)parc.get("value");
+				double weight = Double.parseDouble(parc.get("weight").toString());
+				double value = Double.parseDouble(parc.get("value").toString());
 				parcelSet.parcels.add(new ParcelObject(name, weight, value));
 			}
-			
 			
 			
 		}catch (FileNotFoundException e) {

@@ -13,13 +13,13 @@ public class Population {
 	
 	Chromosome solutionChromosome; 
 	double capacity, quota;
-	Long numOfBoxes;
+	int numOfBoxes;
 	public ArrayList<Chromosome> chromosomes = new ArrayList<>();
 	
-	public Population(double capacity, double quota, Long long1) {
+	public Population(double capacity, double quota, int i) {
 		this.capacity = capacity;
 		this.quota = quota;
-		this.numOfBoxes = long1;
+		this.numOfBoxes = i;
 	
 	}
 	

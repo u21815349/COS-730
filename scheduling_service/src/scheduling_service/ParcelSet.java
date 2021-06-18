@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class ParcelSet {
 	double capacity;
 	double quota;
-	Long numberOfParcels;
+	int numberOfParcels;
 	public ArrayList<ParcelObject> parcels = new ArrayList<>();
 	
-	public ParcelSet(double capacity, double quota, Long numOfParcels) {
+	public ParcelSet(double capacity, double quota, int numOfParcels) {
 		this.capacity = capacity;
 		this.quota = quota;
 		this.numberOfParcels = numOfParcels;
@@ -23,7 +23,7 @@ public class ParcelSet {
 		return quota;
 	}
 	
-	public Long getNumberOfParcels() {
+	public int getNumberOfParcels() {
 		return numberOfParcels;
 	}
 	
