@@ -55,7 +55,7 @@ namespace courier_delivery_client
             /*Write Sorted parcels to sorted parcels gridview*/
             SortedParcels sortedParcels = JsonConvert.DeserializeObject<SortedParcels>(sortedParcelsJaon);
             TotalValue.Text =  sortedParcels.value.ToString();
-            TotalWeightLabel.Text = sortedParcels.value.ToString();
+            TotalWeightLabel.Text = sortedParcels.Weight.ToString();
 
             
             sortedParcelsGridView.Rows.Clear();

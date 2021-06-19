@@ -8,7 +8,7 @@ router.post('/driver', vehicle.addDriver );
 router.put('/vehicle', vehicle.updateVehicle);
 router.put('/driver', vehicle.updateDriver)
 router.get('/vehicle/id', vehicle.getVehicleJoinById);
-router.get('/vehicle/all', vehicle.getVehicleJoin);
+router.get('/getAllVehicles', vehicle.getVehicleJoin);
 
 /** 
 router.get('/search', async(req, res) =>{

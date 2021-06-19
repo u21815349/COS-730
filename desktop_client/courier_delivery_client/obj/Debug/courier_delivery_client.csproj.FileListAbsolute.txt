@@ -28,3 +28,4 @@ C:\Users\oyama\Documents\Honours 2021\COS 730\Assignment 3\Project\desktop_clien
 C:\Users\oyama\Documents\Honours 2021\COS 730\Assignment 3\Project\desktop_client\courier_delivery_client\bin\Debug\System.Text.Json.xml
 C:\Users\oyama\Documents\Honours 2021\COS 730\Assignment 3\Project\desktop_client\courier_delivery_client\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\oyama\Documents\Honours 2021\COS 730\Assignment 3\Project\desktop_client\courier_delivery_client\bin\Debug\System.ValueTuple.xml
+C:\Users\oyama\Documents\Honours 2021\COS 730\Assignment 3\Project\desktop_client\courier_delivery_client\obj\Debug\courier_delivery_client.csproj.AssemblyReference.cache
