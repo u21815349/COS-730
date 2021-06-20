@@ -30,12 +30,12 @@ namespace courier_delivery_client
         private void InitializeComponent()
         {
             this.parcels_dataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.vehiclesDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RightButton = new System.Windows.Forms.Button();
             this.LeftButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.vehicle_capacity_textbox = new System.Windows.Forms.TextBox();
+            this.VehicleCapacityTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.quota_textbox = new System.Windows.Forms.TextBox();
             this.sort_parcels_button = new System.Windows.Forms.Button();
@@ -47,20 +47,21 @@ namespace courier_delivery_client
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.AddVehicleButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.sortedParcelsGridView = new System.Windows.Forms.DataGridView();
-            this.add_delivery_button = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TotalWeightLabel = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TotalValue = new System.Windows.Forms.Label();
             this._parcelId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add_delivery_button = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TotalWeightLabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TotalValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.parcels_dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedParcelsDataGridView)).BeginInit();
@@ -81,22 +82,23 @@ namespace courier_delivery_client
             this.parcels_dataGridView.Size = new System.Drawing.Size(580, 377);
             this.parcels_dataGridView.TabIndex = 0;
             // 
-            // dataGridView2
+            // vehiclesDataGridView
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(20, 47);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(623, 302);
-            this.dataGridView2.TabIndex = 1;
+            this.vehiclesDataGridView.AllowUserToAddRows = false;
+            this.vehiclesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.vehiclesDataGridView.Location = new System.Drawing.Point(20, 36);
+            this.vehiclesDataGridView.Name = "vehiclesDataGridView";
+            this.vehiclesDataGridView.RowHeadersWidth = 51;
+            this.vehiclesDataGridView.RowTemplate.Height = 24;
+            this.vehiclesDataGridView.Size = new System.Drawing.Size(623, 302);
+            this.vehiclesDataGridView.TabIndex = 1;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.RightButton);
             this.groupBox1.Controls.Add(this.LeftButton);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.vehicle_capacity_textbox);
+            this.groupBox1.Controls.Add(this.VehicleCapacityTextbox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.quota_textbox);
             this.groupBox1.Controls.Add(this.sort_parcels_button);
@@ -137,28 +139,28 @@ namespace courier_delivery_client
             this.label2.TabIndex = 9;
             this.label2.Text = "Vehicle capacity";
             // 
-            // vehicle_capacity_textbox
+            // VehicleCapacityTextbox
             // 
-            this.vehicle_capacity_textbox.Location = new System.Drawing.Point(1489, 290);
-            this.vehicle_capacity_textbox.Name = "vehicle_capacity_textbox";
-            this.vehicle_capacity_textbox.ReadOnly = true;
-            this.vehicle_capacity_textbox.Size = new System.Drawing.Size(129, 22);
-            this.vehicle_capacity_textbox.TabIndex = 8;
+            this.VehicleCapacityTextbox.Location = new System.Drawing.Point(1489, 290);
+            this.VehicleCapacityTextbox.Name = "VehicleCapacityTextbox";
+            this.VehicleCapacityTextbox.ReadOnly = true;
+            this.VehicleCapacityTextbox.Size = new System.Drawing.Size(156, 22);
+            this.VehicleCapacityTextbox.TabIndex = 8;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(1489, 156);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 17);
+            this.label1.Size = new System.Drawing.Size(156, 17);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Enter quota";
+            this.label1.Text = "Enter quota (Min value)";
             // 
             // quota_textbox
             // 
             this.quota_textbox.Location = new System.Drawing.Point(1489, 179);
             this.quota_textbox.Name = "quota_textbox";
-            this.quota_textbox.Size = new System.Drawing.Size(129, 22);
+            this.quota_textbox.Size = new System.Drawing.Size(156, 22);
             this.quota_textbox.TabIndex = 6;
             // 
             // sort_parcels_button
@@ -235,20 +237,31 @@ namespace courier_delivery_client
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Controls.Add(this.AddVehicleButton);
+            this.groupBox2.Controls.Add(this.vehiclesDataGridView);
             this.groupBox2.Location = new System.Drawing.Point(49, 549);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(670, 380);
+            this.groupBox2.Size = new System.Drawing.Size(670, 408);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vehicles";
+            // 
+            // AddVehicleButton
+            // 
+            this.AddVehicleButton.Location = new System.Drawing.Point(243, 344);
+            this.AddVehicleButton.Name = "AddVehicleButton";
+            this.AddVehicleButton.Size = new System.Drawing.Size(160, 43);
+            this.AddVehicleButton.TabIndex = 2;
+            this.AddVehicleButton.Text = "Add Vehicle";
+            this.AddVehicleButton.UseVisualStyleBackColor = true;
+            this.AddVehicleButton.Click += new System.EventHandler(this.AddVehicleButton_Click);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.sortedParcelsGridView);
             this.groupBox4.Location = new System.Drawing.Point(764, 549);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(733, 380);
+            this.groupBox4.Size = new System.Drawing.Size(733, 408);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Sorted parcels";
@@ -269,6 +282,41 @@ namespace courier_delivery_client
             this.sortedParcelsGridView.RowTemplate.Height = 24;
             this.sortedParcelsGridView.Size = new System.Drawing.Size(694, 302);
             this.sortedParcelsGridView.TabIndex = 0;
+            // 
+            // _parcelId
+            // 
+            this._parcelId.HeaderText = "Parcel ID";
+            this._parcelId.MinimumWidth = 6;
+            this._parcelId.Name = "_parcelId";
+            this._parcelId.Width = 125;
+            // 
+            // _code
+            // 
+            this._code.HeaderText = "Code";
+            this._code.MinimumWidth = 6;
+            this._code.Name = "_code";
+            this._code.Width = 125;
+            // 
+            // _description
+            // 
+            this._description.HeaderText = "Description";
+            this._description.MinimumWidth = 6;
+            this._description.Name = "_description";
+            this._description.Width = 125;
+            // 
+            // _value
+            // 
+            this._value.HeaderText = "Value";
+            this._value.MinimumWidth = 6;
+            this._value.Name = "_value";
+            this._value.Width = 125;
+            // 
+            // _weight
+            // 
+            this._weight.HeaderText = "Weight";
+            this._weight.MinimumWidth = 6;
+            this._weight.Name = "_weight";
+            this._weight.Width = 125;
             // 
             // add_delivery_button
             // 
@@ -317,41 +365,6 @@ namespace courier_delivery_client
             this.TotalValue.Size = new System.Drawing.Size(0, 17);
             this.TotalValue.TabIndex = 9;
             // 
-            // _parcelId
-            // 
-            this._parcelId.HeaderText = "Parcel ID";
-            this._parcelId.MinimumWidth = 6;
-            this._parcelId.Name = "_parcelId";
-            this._parcelId.Width = 125;
-            // 
-            // _code
-            // 
-            this._code.HeaderText = "Code";
-            this._code.MinimumWidth = 6;
-            this._code.Name = "_code";
-            this._code.Width = 125;
-            // 
-            // _description
-            // 
-            this._description.HeaderText = "Description";
-            this._description.MinimumWidth = 6;
-            this._description.Name = "_description";
-            this._description.Width = 125;
-            // 
-            // _value
-            // 
-            this._value.HeaderText = "Value";
-            this._value.MinimumWidth = 6;
-            this._value.Name = "_value";
-            this._value.Width = 125;
-            // 
-            // _weight
-            // 
-            this._weight.HeaderText = "Weight";
-            this._weight.MinimumWidth = 6;
-            this._weight.Name = "_weight";
-            this._weight.Width = 125;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -371,7 +384,7 @@ namespace courier_delivery_client
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.parcels_dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -387,10 +400,10 @@ namespace courier_delivery_client
         #endregion
 
         private System.Windows.Forms.DataGridView parcels_dataGridView;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView vehiclesDataGridView;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox vehicle_capacity_textbox;
+        private System.Windows.Forms.TextBox VehicleCapacityTextbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox quota_textbox;
         private System.Windows.Forms.Button sort_parcels_button;
@@ -416,6 +429,7 @@ namespace courier_delivery_client
         private System.Windows.Forms.DataGridViewTextBoxColumn _description;
         private System.Windows.Forms.DataGridViewTextBoxColumn _value;
         private System.Windows.Forms.DataGridViewTextBoxColumn _weight;
+        private System.Windows.Forms.Button AddVehicleButton;
     }
 }
 

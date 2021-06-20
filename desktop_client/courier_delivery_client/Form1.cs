@@ -28,6 +28,10 @@ namespace courier_delivery_client
 
         private void sort_parcels_button_Click(object sender, EventArgs e)
         {
+
+            
+
+
             DeliveryCandidates deliveryCandidates;
             Parcel[] parcels = new Parcel[SelectedParcelsDataGridView.Rows.Count];
 
@@ -43,7 +47,7 @@ namespace courier_delivery_client
                 parcels[j] = parcel;
             }
 
-            deliveryCandidates = new DeliveryCandidates(400, double.Parse(quota_textbox.Text), j);
+            deliveryCandidates = new DeliveryCandidates(double.Parse(VehicleCapacityTextbox.Text), double.Parse(quota_textbox.Text), j);
             for (int i = 0; i < j; i++) {
                 deliveryCandidates.parcels[i] = parcels[i];
             }
@@ -54,13 +58,15 @@ namespace courier_delivery_client
 
             /*Write Sorted parcels to sorted parcels gridview*/
             SortedParcels sortedParcels = JsonConvert.DeserializeObject<SortedParcels>(sortedParcelsJaon);
-            TotalValue.Text =  sortedParcels.value.ToString();
-            TotalWeightLabel.Text = sortedParcels.Weight.ToString();
+
+            /*Leave these 2 lines as is!!*/
+            TotalValue.Text = sortedParcels.value.ToString();
+            TotalWeightLabel.Text = sortedParcels.weight.ToString();
 
             
             sortedParcelsGridView.Rows.Clear();
 
-                foreach (DataGridViewRow row in SelectedParcelsDataGridView.Rows)
+            foreach (DataGridViewRow row in SelectedParcelsDataGridView.Rows)
             {
                 if (sortedParcels.sortedParcels.Contains(row.Cells["code"].Value.ToString()))
                 {
@@ -77,6 +83,7 @@ namespace courier_delivery_client
         private void Form1_Load(object sender, EventArgs e)
         {
             parcels_dataGridView.DataSource = Api.GetAllParcels();
+            vehiclesDataGridView.DataSource = Api.GetAllVehicles();
         }
 
         
@@ -96,6 +103,20 @@ namespace courier_delivery_client
                     rowData[i] = row.Cells[i].Value;
                 }
                 this.SelectedParcelsDataGridView.Rows.Add(rowData);
+            }
+        }
+
+
+        private void AddVehicleButton_Click(object sender, EventArgs e)
+        {
+            /*
+             *Get capacity of selected vehicle
+             */
+            double capacity;
+            foreach (DataGridViewRow row in vehiclesDataGridView.SelectedRows)
+            {
+                capacity = double.Parse(row.Cells["weight_capacity"].Value.ToString());
+                VehicleCapacityTextbox.Text = capacity.ToString();
             }
         }
     }

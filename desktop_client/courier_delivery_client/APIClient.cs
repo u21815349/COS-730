@@ -31,6 +31,25 @@ namespace courier_delivery_client
             return datatable;
         }
 
+
+        public DataTable GetAllVehicles()
+        {
+            DataTable datatable;
+            var url = "http://localhost:3002/api/vehicle/service/getAllVehicles";
+
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+
+            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                datatable = (DataTable)JsonConvert.DeserializeObject(result,
+                    (typeof(DataTable)));
+            }
+
+            return datatable;
+        }
+
         public String SortParcels(String ParcelsJson)
         {
 
@@ -57,5 +76,6 @@ namespace courier_delivery_client
 
             return result;
         }
+
     }
 }

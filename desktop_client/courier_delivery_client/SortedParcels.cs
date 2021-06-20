@@ -8,7 +8,7 @@ namespace courier_delivery_client
 {
     class SortedParcels
     {
-        public double Weight { get; set; }
+        public double weight { get; set; }
         public double value { get; set; }
         public List<String> sortedParcels { get; set; }
     }
