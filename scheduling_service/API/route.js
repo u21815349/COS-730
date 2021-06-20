@@ -14,5 +14,6 @@ const router = express.Router();
 router.get('/getAllDeliveries', delivery.getAllDeliveries);
 router.post('/addDelivery', delivery.addDelivery);
 router.post('/sortParcels', delivery.sortParcels);
+router.post('/addParcels', parcel.addParcel);
 
 module.exports = router;

@@ -1,6 +1,4 @@
 const mssqlcon = require ('../dbconnection');
-const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-const deliveryMssql = require('./delivery.mssql');
 
 /**The delivery database query */
 class DeliveryMSSql{

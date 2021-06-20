@@ -5,8 +5,10 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+
 
 namespace courier_delivery_client
 {
@@ -75,6 +77,57 @@ namespace courier_delivery_client
             }
 
             return result;
+        }
+
+        public void AddDelivery(String deliveryJson)
+        {
+            var url = "http://localhost:3000/api/delivery/service/addDelivery";
+
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpRequest.Method = "POST";
+
+            httpRequest.ContentType = "application/json";
+
+            var data = deliveryJson;
+
+            using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
+            {
+                streamWriter.Write(data);
+            }
+
+            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+            }
+
+            Console.WriteLine(httpResponse.StatusCode);
+
+        }
+
+        public void AddDeliveryPnR(String pnrJson)
+        {
+            var url = "http://localhost:3000/api/delivery/service/addParcels";
+
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpRequest.Method = "POST";
+
+            httpRequest.ContentType = "application/json";
+
+            var data = pnrJson;
+
+            using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
+            {
+                streamWriter.Write(data);
+            }
+
+            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+            }
+
+            Console.WriteLine(httpResponse.StatusCode);
         }
 
     }

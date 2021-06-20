@@ -20,6 +20,7 @@ namespace courier_delivery_client
     public partial class Form1 : Form
     {
         APIClient Api = new APIClient();
+        String vehicleName;
         public Form1()
         {
             InitializeComponent();
@@ -28,10 +29,6 @@ namespace courier_delivery_client
 
         private void sort_parcels_button_Click(object sender, EventArgs e)
         {
-
-            
-
-
             DeliveryCandidates deliveryCandidates;
             Parcel[] parcels = new Parcel[SelectedParcelsDataGridView.Rows.Count];
 
@@ -86,10 +83,6 @@ namespace courier_delivery_client
             vehiclesDataGridView.DataSource = Api.GetAllVehicles();
         }
 
-        
-
-        
-
         private void RightButton_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in parcels_dataGridView.SelectedRows)
@@ -114,6 +107,28 @@ namespace courier_delivery_client
             {
                 capacity = double.Parse(row.Cells["weight_capacity"].Value.ToString());
                 VehicleCapacityTextbox.Text = capacity.ToString();
+                vehicleName = row.Cells["name"].Value.ToString();
+            }
+        }
+
+        private void add_delivery_button_Click(object sender, EventArgs e)
+        {
+            Delivery delivery = new Delivery();
+            delivery.vehicle = vehicleName;
+            delivery.date = dateTimePicker1.Value;
+            Api.AddDelivery(JsonConvert.SerializeObject(delivery));
+            foreach(DataGridViewRow row in sortedParcelsGridView.Rows)
+            {
+                ParcelsAndRoute pnr = new ParcelsAndRoute();
+                pnr.parcel_code = row.Cells["_code"].Value.ToString();
+                pnr.parcel_description = row.Cells["_description"].Value.ToString();
+                pnr.street_no = int.Parse(row.Cells["_street_no"].Value.ToString());
+                pnr.street = row.Cells["_street"].Value.ToString();
+                pnr.surburb = row.Cells["_surburb"].Value.ToString();
+                pnr.city = row.Cells["_city"].Value.ToString();
+                pnr.post_code = row.Cells["_post_code"].Value.ToString();
+
+                Api.AddDeliveryPnR(JsonConvert.SerializeObject(pnr));
             }
         }
     }

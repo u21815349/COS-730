@@ -41,25 +41,34 @@ namespace courier_delivery_client
             this.sort_parcels_button = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.SelectedParcelsDataGridView = new System.Windows.Forms.DataGridView();
-            this.parcel_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.AddVehicleButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.sortedParcelsGridView = new System.Windows.Forms.DataGridView();
-            this._parcelId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.add_delivery_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.TotalWeightLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TotalValue = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.street_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.street = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surburb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.post_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._city = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._street_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._street = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._surburb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._post_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.parcels_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -188,52 +197,21 @@ namespace courier_delivery_client
             this.SelectedParcelsDataGridView.AllowUserToAddRows = false;
             this.SelectedParcelsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SelectedParcelsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.parcel_id,
             this.code,
-            this.description,
             this.value,
-            this.weight});
-            this.SelectedParcelsDataGridView.Location = new System.Drawing.Point(43, 33);
+            this.weight,
+            this.description,
+            this.city,
+            this.street_no,
+            this.street,
+            this.surburb,
+            this.post_code});
+            this.SelectedParcelsDataGridView.Location = new System.Drawing.Point(20, 21);
             this.SelectedParcelsDataGridView.Name = "SelectedParcelsDataGridView";
             this.SelectedParcelsDataGridView.RowHeadersWidth = 51;
             this.SelectedParcelsDataGridView.RowTemplate.Height = 24;
             this.SelectedParcelsDataGridView.Size = new System.Drawing.Size(671, 310);
             this.SelectedParcelsDataGridView.TabIndex = 0;
-            // 
-            // parcel_id
-            // 
-            this.parcel_id.HeaderText = "Parcel ID";
-            this.parcel_id.MinimumWidth = 6;
-            this.parcel_id.Name = "parcel_id";
-            this.parcel_id.Width = 125;
-            // 
-            // code
-            // 
-            this.code.HeaderText = "Code";
-            this.code.MinimumWidth = 6;
-            this.code.Name = "code";
-            this.code.Width = 125;
-            // 
-            // description
-            // 
-            this.description.HeaderText = "Description";
-            this.description.MinimumWidth = 6;
-            this.description.Name = "description";
-            this.description.Width = 125;
-            // 
-            // value
-            // 
-            this.value.HeaderText = "Value";
-            this.value.MinimumWidth = 6;
-            this.value.Name = "value";
-            this.value.Width = 125;
-            // 
-            // weight
-            // 
-            this.weight.HeaderText = "Weight";
-            this.weight.MinimumWidth = 6;
-            this.weight.Name = "weight";
-            this.weight.Width = 125;
             // 
             // groupBox2
             // 
@@ -271,11 +249,15 @@ namespace courier_delivery_client
             this.sortedParcelsGridView.AllowUserToAddRows = false;
             this.sortedParcelsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sortedParcelsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this._parcelId,
             this._code,
-            this._description,
             this._value,
-            this._weight});
+            this._weight,
+            this._description,
+            this._city,
+            this._street_no,
+            this._street,
+            this._surburb,
+            this._post_code});
             this.sortedParcelsGridView.Location = new System.Drawing.Point(20, 47);
             this.sortedParcelsGridView.Name = "sortedParcelsGridView";
             this.sortedParcelsGridView.RowHeadersWidth = 51;
@@ -283,49 +265,15 @@ namespace courier_delivery_client
             this.sortedParcelsGridView.Size = new System.Drawing.Size(694, 302);
             this.sortedParcelsGridView.TabIndex = 0;
             // 
-            // _parcelId
-            // 
-            this._parcelId.HeaderText = "Parcel ID";
-            this._parcelId.MinimumWidth = 6;
-            this._parcelId.Name = "_parcelId";
-            this._parcelId.Width = 125;
-            // 
-            // _code
-            // 
-            this._code.HeaderText = "Code";
-            this._code.MinimumWidth = 6;
-            this._code.Name = "_code";
-            this._code.Width = 125;
-            // 
-            // _description
-            // 
-            this._description.HeaderText = "Description";
-            this._description.MinimumWidth = 6;
-            this._description.Name = "_description";
-            this._description.Width = 125;
-            // 
-            // _value
-            // 
-            this._value.HeaderText = "Value";
-            this._value.MinimumWidth = 6;
-            this._value.Name = "_value";
-            this._value.Width = 125;
-            // 
-            // _weight
-            // 
-            this._weight.HeaderText = "Weight";
-            this._weight.MinimumWidth = 6;
-            this._weight.Name = "_weight";
-            this._weight.Width = 125;
-            // 
             // add_delivery_button
             // 
-            this.add_delivery_button.Location = new System.Drawing.Point(1579, 748);
+            this.add_delivery_button.Location = new System.Drawing.Point(1541, 893);
             this.add_delivery_button.Name = "add_delivery_button";
             this.add_delivery_button.Size = new System.Drawing.Size(129, 52);
             this.add_delivery_button.TabIndex = 5;
             this.add_delivery_button.Text = "Add delivery";
             this.add_delivery_button.UseVisualStyleBackColor = true;
+            this.add_delivery_button.Click += new System.EventHandler(this.add_delivery_button_Click);
             // 
             // label3
             // 
@@ -364,6 +312,139 @@ namespace courier_delivery_client
             this.TotalValue.Size = new System.Drawing.Size(0, 17);
             this.TotalValue.TabIndex = 9;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(1541, 730);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
+            // code
+            // 
+            this.code.HeaderText = "Code";
+            this.code.MinimumWidth = 6;
+            this.code.Name = "code";
+            this.code.Width = 125;
+            // 
+            // value
+            // 
+            this.value.HeaderText = "Value";
+            this.value.MinimumWidth = 6;
+            this.value.Name = "value";
+            this.value.Width = 125;
+            // 
+            // weight
+            // 
+            this.weight.HeaderText = "Weight";
+            this.weight.MinimumWidth = 6;
+            this.weight.Name = "weight";
+            this.weight.Width = 125;
+            // 
+            // description
+            // 
+            this.description.HeaderText = "Description";
+            this.description.MinimumWidth = 6;
+            this.description.Name = "description";
+            this.description.Width = 125;
+            // 
+            // city
+            // 
+            this.city.HeaderText = "City";
+            this.city.MinimumWidth = 6;
+            this.city.Name = "city";
+            this.city.Width = 125;
+            // 
+            // street_no
+            // 
+            this.street_no.HeaderText = "Street No";
+            this.street_no.MinimumWidth = 6;
+            this.street_no.Name = "street_no";
+            this.street_no.Width = 125;
+            // 
+            // street
+            // 
+            this.street.HeaderText = "Street";
+            this.street.MinimumWidth = 6;
+            this.street.Name = "street";
+            this.street.Width = 125;
+            // 
+            // surburb
+            // 
+            this.surburb.HeaderText = "Surburb";
+            this.surburb.MinimumWidth = 6;
+            this.surburb.Name = "surburb";
+            this.surburb.Width = 125;
+            // 
+            // post_code
+            // 
+            this.post_code.HeaderText = "Post code";
+            this.post_code.MinimumWidth = 6;
+            this.post_code.Name = "post_code";
+            this.post_code.Width = 125;
+            // 
+            // _code
+            // 
+            this._code.HeaderText = "Code";
+            this._code.MinimumWidth = 6;
+            this._code.Name = "_code";
+            this._code.Width = 125;
+            // 
+            // _value
+            // 
+            this._value.HeaderText = "Value";
+            this._value.MinimumWidth = 6;
+            this._value.Name = "_value";
+            this._value.Width = 125;
+            // 
+            // _weight
+            // 
+            this._weight.HeaderText = "Weight";
+            this._weight.MinimumWidth = 6;
+            this._weight.Name = "_weight";
+            this._weight.Width = 125;
+            // 
+            // _description
+            // 
+            this._description.HeaderText = "Description";
+            this._description.MinimumWidth = 6;
+            this._description.Name = "_description";
+            this._description.Width = 125;
+            // 
+            // _city
+            // 
+            this._city.HeaderText = "City";
+            this._city.MinimumWidth = 6;
+            this._city.Name = "_city";
+            this._city.Width = 125;
+            // 
+            // _street_no
+            // 
+            this._street_no.HeaderText = "Street No";
+            this._street_no.MinimumWidth = 6;
+            this._street_no.Name = "_street_no";
+            this._street_no.Width = 125;
+            // 
+            // _street
+            // 
+            this._street.HeaderText = "Street";
+            this._street.MinimumWidth = 6;
+            this._street.Name = "_street";
+            this._street.Width = 125;
+            // 
+            // _surburb
+            // 
+            this._surburb.HeaderText = "Surburb";
+            this._surburb.MinimumWidth = 6;
+            this._surburb.Name = "_surburb";
+            this._surburb.Width = 125;
+            // 
+            // _post_code
+            // 
+            this._post_code.HeaderText = "Post code";
+            this._post_code.MinimumWidth = 6;
+            this._post_code.Name = "_post_code";
+            this._post_code.Width = 125;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -371,6 +452,7 @@ namespace courier_delivery_client
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1813, 1016);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.TotalValue);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TotalWeightLabel);
@@ -412,23 +494,32 @@ namespace courier_delivery_client
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView sortedParcelsGridView;
         private System.Windows.Forms.Button add_delivery_button;
-        private System.Windows.Forms.DataGridViewTextBoxColumn parcel_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn value;
-        private System.Windows.Forms.DataGridViewTextBoxColumn weight;
         private System.Windows.Forms.Button RightButton;
         private System.Windows.Forms.Button LeftButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label TotalWeightLabel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label TotalValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _parcelId;
+        private System.Windows.Forms.Button AddVehicleButton;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn city;
+        private System.Windows.Forms.DataGridViewTextBoxColumn street_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn street;
+        private System.Windows.Forms.DataGridViewTextBoxColumn surburb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn post_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn _code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _description;
         private System.Windows.Forms.DataGridViewTextBoxColumn _value;
         private System.Windows.Forms.DataGridViewTextBoxColumn _weight;
-        private System.Windows.Forms.Button AddVehicleButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _city;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _street_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _street;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _surburb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _post_code;
     }
 }
 
