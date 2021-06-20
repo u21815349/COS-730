@@ -88,10 +88,7 @@ namespace courier_delivery_client
 
         
 
-        private void add_delivery_button_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void RightButton_Click(object sender, EventArgs e)
         {

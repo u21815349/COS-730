@@ -326,7 +326,6 @@ namespace courier_delivery_client
             this.add_delivery_button.TabIndex = 5;
             this.add_delivery_button.Text = "Add delivery";
             this.add_delivery_button.UseVisualStyleBackColor = true;
-            this.add_delivery_button.Click += new System.EventHandler(this.add_delivery_button_Click);
             // 
             // label3
             // 

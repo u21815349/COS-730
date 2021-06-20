@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**Delivery */
 router.get('/getAllDeliveries', delivery.getAllDeliveries);
-router.put('/scheduleDelivery', delivery.addDelivery);
+router.post('/addDelivery', delivery.addDelivery);
 router.post('/sortParcels', delivery.sortParcels);
 
 module.exports = router;

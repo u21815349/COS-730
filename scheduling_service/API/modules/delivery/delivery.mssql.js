@@ -1,4 +1,6 @@
 const mssqlcon = require ('../dbconnection');
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+const deliveryMssql = require('./delivery.mssql');
 
 /**The delivery database query */
 class DeliveryMSSql{
@@ -15,6 +17,7 @@ class DeliveryMSSql{
         .input("vehicle", delivery.vehicle)
         .input("date", delivery.date)
         .execute("addDelivery");
+        
         return res;
     }
 
@@ -32,8 +35,8 @@ class DeliveryMSSql{
     async addParcel(delivery){
         const conn = await mssqlcon.getConnection();
         const res = await conn.request()
-        .input("parcel_code", delivery.parcel_code)
-        .input("parcel_description", delivery.parcel_description)
+        .input("parcel_code", delivery.code)
+        .input("parcel_description", delivery.description)
         .input("street_no", delivery.street_no)
         .input("street", delivery.street)
         .input("surburb", delivery.surburb)
