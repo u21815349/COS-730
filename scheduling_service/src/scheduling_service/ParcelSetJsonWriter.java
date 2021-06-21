@@ -20,7 +20,7 @@ public class ParcelSetJsonWriter {
 			output.put("value", sortedParcels.getFitness());
 			output.put("weight", sortedParcels.getWeight());
 			
-			//Output Parcel list
+			//Output Parcel list.
 			JSONArray parcelArray = new JSONArray();
 			for (String parcel : sortedParcels.getSolutionCrhomosome())
 				parcelArray.add(parcel); 

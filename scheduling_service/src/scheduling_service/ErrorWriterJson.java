@@ -21,7 +21,6 @@ public class ErrorWriterJson {
 			writer.close();
 			return 0;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return 1;
 		}

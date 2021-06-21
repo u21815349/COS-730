@@ -19,7 +19,7 @@ class ErrorWriterJsonTest {
 	}
 
 	@Test
-	@DisplayName ("Must write error in json format to the output file")
+	@DisplayName ("Must write error in json format to the output file.")
 	void test() {
 		assertEquals(0,errorWr.noSolutionForConstraints());
 	}

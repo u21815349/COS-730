@@ -28,7 +28,7 @@ class ParcelSetJsonWriterTest {
 	}
 
 	@Test
-	@DisplayName ("Must write to the output file")
+	@DisplayName ("Must write to the output file.")
 	void test() {
 		ParcelSetJsonWriter writer = new ParcelSetJsonWriter();
 		//writer.write(output);
