@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace courier_delivery_client
 {
-    class APIClient
+    public class APIClient
     {
         public APIClient() { }
 
@@ -79,7 +79,7 @@ namespace courier_delivery_client
             return result;
         }
 
-        public void AddDelivery(String deliveryJson)
+        public string AddDelivery(String deliveryJson)
         {
             var url = "http://localhost:3000/api/delivery/service/addDelivery";
 
@@ -102,10 +102,12 @@ namespace courier_delivery_client
             }
 
             Console.WriteLine(httpResponse.StatusCode);
+            return httpResponse.StatusCode.ToString();
+            
 
         }
 
-        public void AddDeliveryPnR(String pnrJson)
+        public String AddDeliveryPnR(String pnrJson)
         {
             var url = "http://localhost:3000/api/delivery/service/addParcels";
 
@@ -128,6 +130,7 @@ namespace courier_delivery_client
             }
 
             Console.WriteLine(httpResponse.StatusCode);
+            return httpResponse.StatusCode.ToString();
         }
 
     }

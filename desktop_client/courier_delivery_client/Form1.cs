@@ -19,6 +19,7 @@ namespace courier_delivery_client
     
     public partial class Form1 : Form
     {
+
         APIClient Api = new APIClient();
         String vehicleName;
         public Form1()
@@ -56,9 +57,9 @@ namespace courier_delivery_client
             /*Write Sorted parcels to sorted parcels gridview*/
             SortedParcels sortedParcels = JsonConvert.DeserializeObject<SortedParcels>(sortedParcelsJaon);
 
-            /*Leave these 2 lines as is!!*/
-            TotalValue.Text = sortedParcels.value.ToString();
-            TotalWeightLabel.Text = sortedParcels.weight.ToString();
+            
+            TotalValue.Text = sortedParcels.weight.ToString();
+            TotalWeightLabel.Text = sortedParcels.value.ToString();
 
             
             sortedParcelsGridView.Rows.Clear();
@@ -109,6 +110,7 @@ namespace courier_delivery_client
                 VehicleCapacityTextbox.Text = capacity.ToString();
                 vehicleName = row.Cells["name"].Value.ToString();
             }
+            
         }
 
         private void add_delivery_button_Click(object sender, EventArgs e)
@@ -130,6 +132,8 @@ namespace courier_delivery_client
 
                 Api.AddDeliveryPnR(JsonConvert.SerializeObject(pnr));
             }
+
+            MessageBox.Show("Done!");
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace courier_delivery_client
 {
-    class SortedParcels
+    public class SortedParcels
     {
         public double weight { get; set; }
         public double value { get; set; }
