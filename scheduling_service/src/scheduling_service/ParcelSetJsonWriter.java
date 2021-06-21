@@ -10,7 +10,7 @@ import scheduling_service_AI.Output;
 public class ParcelSetJsonWriter {
 
 	@SuppressWarnings("unchecked")
-	public void write(Output sortedParcels) {
+	public int write(Output sortedParcels) {
 		try {
 			//Create a writer
 			FileWriter writer = new FileWriter("D:/Args.json");
@@ -29,10 +29,12 @@ public class ParcelSetJsonWriter {
 			writer.write(output.toJSONString());
 			
 			writer.close();
+			return 0;
 		}
 		catch(IOException ex) {
 			ex.printStackTrace();
 		}
+		return 1;
 	}
 	
 }

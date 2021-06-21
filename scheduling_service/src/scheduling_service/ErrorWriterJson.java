@@ -11,7 +11,7 @@ public class ErrorWriterJson {
 	}
 	
 	
-	public void noSolutionForConstraints() {
+	public int noSolutionForConstraints() {
 		//Output set object
 		JSONObject output = new JSONObject();
 		output.put("Error", "noSolution");
@@ -19,9 +19,11 @@ public class ErrorWriterJson {
 			FileWriter writer = new FileWriter("D:/Args.json"); 
 			writer.write(output.toJSONString());
 			writer.close();
+			return 0;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return 1;
 		}
 	}
 	

@@ -12,6 +12,7 @@ const router = express.Router();
 
 /**Delivery */
 router.get('/getAllDeliveries', delivery.getAllDeliveries);
+router.get('/getDeliveryById', delivery.getDeliveryById);
 router.post('/addDelivery', delivery.addDelivery);
 router.post('/sortParcels', delivery.sortParcels);
 router.post('/addParcels', parcel.addParcel);

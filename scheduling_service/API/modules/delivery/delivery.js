@@ -15,6 +15,15 @@ class Delivery {
         }
     }
 
+    async getDeliveryById(req, res){
+        try {
+            const output = await deliveryMssql.getDeliveryById(req);
+            res.send(output);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     async addDelivery(req, res){
         try {
             const output = await deliveryMssql.addDelivery(req.body);

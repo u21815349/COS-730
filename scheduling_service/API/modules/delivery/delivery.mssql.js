@@ -9,6 +9,14 @@ class DeliveryMSSql{
         return res.recordset;
     }
 
+    async getDeliveryById(delivery){
+        const conn = await mssqlcon.getConnection();
+        const res = await conn.request()
+        .input("delivery_id",delivery.query.id)
+        .execute("getDeliveryById");
+        return res.recordset;
+    }
+
     async addDelivery(delivery){
         const conn = await mssqlcon.getConnection();
         const res = await conn.request()
