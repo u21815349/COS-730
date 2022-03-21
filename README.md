@@ -2,4 +2,7 @@ This application is for a delivery warehouse, for managing parcels, drivers, and
 
 The project is built using a microservices architecture. 
 The services are built on express js and expose Rest API's.
-The client is a windows form application, (To be implemented) Web and mobile clients.
+The client is a windows form application, Web and mobile clients (To be implemented).
+
+#See Architectural_design.pdf - Page 6 for Architectural patterns and Page 10 for Deployment diagram.
+
